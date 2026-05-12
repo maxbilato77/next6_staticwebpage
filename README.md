@@ -1,0 +1,1 @@
+# next6_staticwebpage
