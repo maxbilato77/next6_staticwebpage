@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="next6 — An IT Company">
+    <meta name="theme-color" content="#050508">
     <title>next6</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;900&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -29,11 +33,11 @@
             content: '';
             position: fixed;
             inset: 0;
-            background-image:
-                radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
             background-size: 40px 40px;
             animation: gridDrift 20s linear infinite;
             pointer-events: none;
+            will-change: transform;
             z-index: 0;
         }
 
@@ -49,6 +53,7 @@
             z-index: 0;
             overflow: hidden;
             pointer-events: none;
+            contain: layout style paint;
         }
 
         .aurora .blob {
@@ -57,6 +62,7 @@
             filter: blur(120px);
             opacity: 0.35;
             animation: auroraMove 8s ease-in-out infinite alternate;
+            will-change: transform, opacity;
         }
 
         .aurora .blob:nth-child(1) {
@@ -90,22 +96,10 @@
         }
 
         @keyframes auroraMove {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.25;
-            }
-            33% {
-                transform: translate(60px, -40px) scale(1.15);
-                opacity: 0.4;
-            }
-            66% {
-                transform: translate(-40px, 30px) scale(0.9);
-                opacity: 0.3;
-            }
-            100% {
-                transform: translate(20px, -20px) scale(1.05);
-                opacity: 0.35;
-            }
+            0%   { transform: translate(0, 0) scale(1);      opacity: 0.25; }
+            33%  { transform: translate(60px, -40px) scale(1.15); opacity: 0.4; }
+            66%  { transform: translate(-40px, 30px) scale(0.9);  opacity: 0.3; }
+            100% { transform: translate(20px, -20px) scale(1.05); opacity: 0.35; }
         }
 
         /* ===== DARK OVERLAY FOR DEPTH ===== */
@@ -156,53 +150,19 @@
             opacity: 0.6;
             animation: glowPulse 4s ease-in-out infinite;
             pointer-events: none;
+            will-change: opacity, transform;
         }
 
         @keyframes logoReveal {
-            0% {
-                opacity: 0;
-                transform: scale(0.7);
-                filter: blur(20px);
-            }
-            60% {
-                opacity: 1;
-                filter: blur(0px);
-            }
-            80% {
-                transform: scale(1.02);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-                filter: blur(0px);
-            }
+            0%   { opacity: 0; transform: scale(0.7); filter: blur(20px); }
+            60%  { opacity: 1; filter: blur(0px); }
+            80%  { transform: scale(1.02); }
+            100% { opacity: 1; transform: scale(1); filter: blur(0px); }
         }
 
         @keyframes glowPulse {
             0%, 100% { opacity: 0.4; transform: scale(1); }
             50%      { opacity: 0.7; transform: scale(1.05); }
-        }
-
-        /* ===== ANIMATED LINE ===== */
-        .line {
-            width: clamp(120px, 20vw, 280px);
-            height: 2px;
-            border-radius: 2px;
-            background: linear-gradient(90deg, transparent, #00d4ff, #2d6aff, #6B21F7, transparent);
-            background-size: 200% 100%;
-            animation:
-                lineReveal 2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both,
-                lineShimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes lineReveal {
-            0%   { opacity: 0; width: 0; }
-            100% { opacity: 1; width: clamp(120px, 20vw, 280px); }
-        }
-
-        @keyframes lineShimmer {
-            0%   { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
         }
 
         /* ===== TAGLINE ===== */
@@ -227,6 +187,7 @@
             z-index: 2;
             pointer-events: none;
             overflow: hidden;
+            contain: layout style paint;
         }
 
         .particle {
@@ -236,6 +197,7 @@
             border-radius: 50%;
             background: rgba(0, 212, 255, 0.5);
             animation: particleFloat linear infinite;
+            will-change: transform, opacity;
         }
 
         .particle:nth-child(1)  { left: 10%; animation-duration: 18s; animation-delay: 0s;   top: 100%; }
@@ -248,7 +210,7 @@
         .particle:nth-child(8)  { left: 5%;  animation-duration: 19s; animation-delay: -7s;  top: 100%; background: rgba(107, 33, 247, 0.35); width: 3px; height: 3px; }
         .particle:nth-child(9)  { left: 45%; animation-duration: 23s; animation-delay: -12s; top: 100%; }
         .particle:nth-child(10) { left: 90%; animation-duration: 15s; animation-delay: -1s;  top: 100%; background: rgba(0, 212, 255, 0.6); }
-        .particle:nth-child(11) { left: 28%; animation-duration: 26s; animation-delay: -9s;  top: 100%; width: 2px; height: 2px; }
+        .particle:nth-child(11) { left: 28%; animation-duration: 26s; animation-delay: -9s;  top: 100%; }
         .particle:nth-child(12) { left: 58%; animation-duration: 20s; animation-delay: -15s; top: 100%; background: rgba(45, 106, 255, 0.35); }
 
         @keyframes particleFloat {
@@ -272,6 +234,7 @@
             pointer-events: none;
             z-index: 3;
             animation: ambientGlow 6s ease-in-out infinite;
+            will-change: opacity, transform;
         }
 
         @keyframes ambientGlow {
@@ -310,7 +273,6 @@
     <!-- MAIN CONTENT -->
     <div class="content">
         <div class="logo">next6</div>
-        <!-- <div class="line"></div> -->
         <div class="tagline">An IT Company</div>
     </div>
 </body>
