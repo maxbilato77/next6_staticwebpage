@@ -1,50 +1,50 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Questo file fornisce indicazioni a Claude Code (claude.ai/code) quando lavora con il codice in questo repository.
 
-## Project overview
+## Panoramica del progetto
 
-Static landing page for **next6 — An IT Company**, deployed at [www.next6.it](https://www.next6.it) via Azure Static Web Apps. There is no build step, no JavaScript, and no package manager — the entire site is a single self-contained `index.html` with all CSS inlined.
+Landing page statica per **next6 — An IT Company**, distribuita su [www.next6.it](https://www.next6.it) tramite Azure Static Web Apps. Non esiste alcun passaggio di build, JavaScript esterno o gestore di pacchetti — l'intero sito è un singolo `index.html` autocontenuto con tutto il CSS inline.
 
-## Development
+## Sviluppo
 
-To preview locally, open `index.html` directly in a browser:
+Per visualizzare la pagina in locale, aprire `index.html` direttamente nel browser:
 
 ```bash
 xdg-open index.html        # Linux
 open index.html            # macOS
 ```
 
-No server required — the page has no dynamic dependencies or API calls.
+Non è necessario alcun server — la pagina non ha dipendenze dinamiche né chiamate API.
 
-## Deployment
+## Distribuzione
 
-Every push to `main` triggers an automatic deploy via the GitHub Actions workflow at `.github/workflows/azure-static-web-apps-salmon-meadow-0c3133603.yml`. The deploy target is Azure Static Web Apps using the secret `AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_MEADOW_0C3133603`. PR previews are also created automatically and torn down on PR close.
+Ogni push su `main` attiva un deploy automatico tramite il workflow GitHub Actions in `.github/workflows/azure-static-web-apps-salmon-meadow-0c3133603.yml`. Il target di deploy è Azure Static Web Apps, usando il secret `AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_MEADOW_0C3133603`. Le anteprime delle PR vengono create automaticamente e rimosse alla chiusura della PR.
 
-## Architecture
+## Architettura
 
-Everything lives in `index.html`. The visual layers, from bottom to top (z-index order):
+Tutto risiede in `index.html`. I livelli visivi, dal basso verso l'alto (ordine z-index):
 
-| Layer | Element | z-index | Purpose |
+| Layer | Elemento | z-index | Scopo |
 |---|---|---|---|
-| Animated dot grid | `body::before` | 0 | CSS background-image grid drifting 40px diagonally |
-| Aurora blobs | `.aurora .blob` | 0 | 3 blurred radial blobs in cyan/blue/purple |
-| Dark vignette | `.overlay` | 1 | `radial-gradient` fading to `#050508` at edges |
-| Floating particles | `.particles .particle` | 2 | 12 tiny dots rising with `particleFloat` keyframes |
-| Ambient glow | `body::after` | 3 | Centered radial glow pulsing slowly |
-| Main content | `.content` | 10 | Logo + tagline, centered with flexbox |
+| Griglia di punti animata | `body::before` | 0 | Griglia CSS con background-image che scivola di 40px in diagonale |
+| Aurora blob | `.aurora .blob` | 0 | 3 blob radiali sfocati in ciano/blu/viola |
+| Vignettatura scura | `.overlay` | 1 | `radial-gradient` che sfuma verso `#050508` ai bordi |
+| Particelle fluttuanti | `.particles .particle` | 2 | 12 piccoli punti che salgono con i keyframe `particleFloat` |
+| Bagliore ambientale | `body::after` | 3 | Bagliore radiale centrato con pulsazione lenta |
+| Contenuto principale | `.content` | 10 | Logo + tagline, centrati con flexbox |
 
-## Design system
+## Sistema di design
 
-- **Background**: `#050508`
-- **Brand gradient**: `#00d4ff` → `#2d6aff` → `#6B21F7` (135°), applied to logo text and aurora blobs
-- **Font**: Inter (300, 400, 900) from Google Fonts; preconnected for performance
-- **Responsive sizing**: Logo uses `clamp(5rem, 12vw, 14rem)`, tagline uses `clamp(0.85rem, 1.8vw, 1.2rem)`
+- **Sfondo**: `#050508`
+- **Gradiente brand**: `#00d4ff` → `#2d6aff` → `#6B21F7` (135°), applicato al testo del logo e agli aurora blob
+- **Font**: Inter (300, 400, 900) da Google Fonts; preconnesso per le performance
+- **Dimensioni responsive**: il logo usa `clamp(5rem, 12vw, 14rem)`, il tagline usa `clamp(0.85rem, 1.8vw, 1.2rem)`
 
-## Performance constraints
+## Vincoli di performance
 
-Keep these in place when editing animated elements:
+Mantenere questi elementi quando si modificano gli elementi animati:
 
-- `will-change: transform, opacity` on all animated elements (aurora blobs, particles, ambient glow)
-- `contain: layout style paint` on `.aurora` and `.particles` to isolate compositing layers
-- Animated grid uses `will-change: transform` to stay on the GPU
+- `will-change: transform, opacity` su tutti gli elementi animati (aurora blob, particelle, bagliore ambientale)
+- `contain: layout style paint` su `.aurora` e `.particles` per isolare i livelli di compositing
+- La griglia animata usa `will-change: transform` per rimanere sulla GPU
