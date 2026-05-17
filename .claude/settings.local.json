@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\MassimilianoBilato\\\\Documents\\\\vscode\\\\next6_staticwebpage\\\\assets\\\\images\")",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\MassimilianoBilato\\\\Documents\\\\vscode\\\\next6_staticwebpage\\\\assets\\\\favicon\")",
+      "Bash(New-Item -ItemType File -Force \"c:\\\\Users\\\\MassimilianoBilato\\\\Documents\\\\vscode\\\\next6_staticwebpage\\\\assets\\\\images\\\\.gitkeep\")",
+      "Bash(New-Item -ItemType File -Force \"c:\\\\Users\\\\MassimilianoBilato\\\\Documents\\\\vscode\\\\next6_staticwebpage\\\\assets\\\\favicon\\\\.gitkeep\")",
+      "Bash(Write-Output \"Done\")"
+    ]
+  }
+}

@@ -6,6 +6,8 @@
     <meta name="description" content="next6 — An IT Company">
     <meta name="theme-color" content="#050508">
     <title>next6</title>
+    <link rel="icon" href="assets/favicon/next6-favicon-dark.svg" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="assets/favicon/next6-favicon-light.svg" media="(prefers-color-scheme: light)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;900&display=swap" rel="stylesheet">
@@ -124,33 +126,19 @@
 
         /* ===== LOGO ===== */
         .logo {
-            font-size: clamp(5rem, 12vw, 14rem);
-            font-weight: 900;
-            letter-spacing: -0.04em;
-            line-height: 1;
-            background: linear-gradient(135deg, #00d4ff 0%, #2d6aff 50%, #6B21F7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            width: clamp(15rem, 36vw, 42rem);
+            display: block;
             position: relative;
             animation: logoReveal 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-            cursor: default;
             user-select: none;
         }
 
-        .logo::after {
-            content: 'next6';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #00d4ff 0%, #2d6aff 50%, #6B21F7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: blur(40px);
-            opacity: 0.6;
+        .logo img {
+            width: 100%;
+            height: auto;
+            display: block;
             animation: glowPulse 4s ease-in-out infinite;
-            pointer-events: none;
-            will-change: opacity, transform;
+            will-change: filter;
         }
 
         @keyframes logoReveal {
@@ -161,8 +149,8 @@
         }
 
         @keyframes glowPulse {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50%      { opacity: 0.7; transform: scale(1.05); }
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.35)) drop-shadow(0 0 60px rgba(107, 33, 247, 0.2)); }
+            50%      { filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.65)) drop-shadow(0 0 80px rgba(107, 33, 247, 0.45)); }
         }
 
         /* ===== TAGLINE ===== */
@@ -272,7 +260,10 @@
 
     <!-- MAIN CONTENT -->
     <div class="content">
-        <div class="logo">next6</div>
+        <picture class="logo">
+            <source srcset="assets/images/next6-logo-light.svg" media="(prefers-color-scheme: light)">
+            <img src="assets/images/next6-logo-dark.svg" alt="next6">
+        </picture>
         <div class="tagline">An IT Company</div>
     </div>
 </body>
