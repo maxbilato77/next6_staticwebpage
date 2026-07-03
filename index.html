@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="next6 — An IT Company">
+    <meta name="description" content="next6">
     <meta name="theme-color" content="#050508">
     <title>next6</title>
     <link rel="icon" href="assets/favicon/next6-favicon-dark.svg" media="(prefers-color-scheme: dark)">
@@ -121,7 +121,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem;
         }
 
         /* ===== LOGO ===== */
@@ -151,21 +150,6 @@
         @keyframes glowPulse {
             0%, 100% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.35)) drop-shadow(0 0 60px rgba(107, 33, 247, 0.2)); }
             50%      { filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.65)) drop-shadow(0 0 80px rgba(107, 33, 247, 0.45)); }
-        }
-
-        /* ===== TAGLINE ===== */
-        .tagline {
-            font-size: clamp(0.85rem, 1.8vw, 1.2rem);
-            font-weight: 300;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.35);
-            animation: tagReveal 1.5s ease 1.2s both;
-        }
-
-        @keyframes tagReveal {
-            0%   { opacity: 0; transform: translateY(16px); }
-            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* ===== FLOATING PARTICLES ===== */
@@ -232,17 +216,14 @@
     </style>
 </head>
 <body>
-    <!-- AURORA GLOW -->
     <div class="aurora">
         <div class="blob"></div>
         <div class="blob"></div>
         <div class="blob"></div>
     </div>
 
-    <!-- DARK OVERLAY -->
     <div class="overlay"></div>
 
-    <!-- FLOATING PARTICLES -->
     <div class="particles">
         <div class="particle"></div>
         <div class="particle"></div>
@@ -258,13 +239,11 @@
         <div class="particle"></div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div class="content">
         <picture class="logo">
             <source srcset="assets/images/next6-logo-light.svg" media="(prefers-color-scheme: light)">
             <img src="assets/images/next6-logo-dark.svg" alt="next6">
         </picture>
-        <div class="tagline">An IT Company</div>
     </div>
 </body>
 </html>
