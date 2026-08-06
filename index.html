@@ -33,9 +33,23 @@
             display: block;
             user-select: none;
         }
+
+        .year {
+            position: fixed;
+            bottom: 1.25rem;
+            right: 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: clamp(0.7rem, 1.4vw, 1rem);
+            color: #c4c4c4;
+            user-select: none;
+        }
     </style>
 </head>
 <body>
     <img class="logo" src="assets/images/next6-social-1200.png" alt="next6">
+    <span class="year" id="year"></span>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
