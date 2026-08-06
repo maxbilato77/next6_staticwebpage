@@ -4,7 +4,7 @@ Questo file fornisce indicazioni a Claude Code (claude.ai/code) quando lavora co
 
 ## Panoramica del progetto
 
-Landing page statica per **next6 — An IT Company**, distribuita su [www.next6.it](https://www.next6.it) tramite Azure Static Web Apps. Non esiste alcun passaggio di build, JavaScript esterno o gestore di pacchetti — l'intero sito è un singolo `index.html` autocontenuto con tutto il CSS inline.
+Landing page statica per **next6 — An IT Company**, distribuita su [www.next6.it](https://www.next6.it) tramite Azure Static Web Apps. Non esiste alcun passaggio di build, script esterni o gestore di pacchetti — l'intero sito è un singolo `index.html` autocontenuto con tutto il CSS inline e un unico piccolo script inline per l'anno corrente.
 
 ## Sviluppo
 
@@ -23,28 +23,26 @@ Ogni push su `main` attiva un deploy automatico tramite il workflow GitHub Actio
 
 ## Architettura
 
-Tutto risiede in `index.html`. I livelli visivi, dal basso verso l'alto (ordine z-index):
+Tutto risiede in `index.html`: una pagina bianca con il solo logo next6 centrato.
 
-| Layer | Elemento | z-index | Scopo |
-|---|---|---|---|
-| Griglia di punti animata | `body::before` | 0 | Griglia CSS con background-image che scivola di 40px in diagonale |
-| Aurora blob | `.aurora .blob` | 0 | 3 blob radiali sfocati in ciano/blu/viola |
-| Vignettatura scura | `.overlay` | 1 | `radial-gradient` che sfuma verso `#050508` ai bordi |
-| Particelle fluttuanti | `.particles .particle` | 2 | 12 piccoli punti che salgono con i keyframe `particleFloat` |
-| Bagliore ambientale | `body::after` | 3 | Bagliore radiale centrato con pulsazione lenta |
-| Contenuto principale | `.content` | 10 | Logo + tagline, centrati con flexbox |
+| Elemento | Selettore | Scopo |
+|---|---|---|
+| Sfondo | `body` | Bianco (`#ffffff`), centrato con flexbox (`align-items`/`justify-content: center`, `min-height: 100vh`) — il logo resta centrato anche ridimensionando la finestra |
+| Logo | `.logo` | `<img>` che punta a `assets/images/next6-social-1200.png`, dimensionato con `clamp()` |
+| Anno corrente | `.year` | `<span>` in basso a destra (`position: fixed`), popolato da un piccolo script inline con `new Date().getFullYear()` |
 
 ## Sistema di design
 
-- **Sfondo**: `#050508`
-- **Gradiente brand**: `#00d4ff` → `#2d6aff` → `#6B21F7` (135°), applicato al testo del logo e agli aurora blob
-- **Font**: Inter (300, 400, 900) da Google Fonts; preconnesso per le performance
-- **Dimensioni responsive**: il logo usa `clamp(5rem, 12vw, 14rem)`, il tagline usa `clamp(0.85rem, 1.8vw, 1.2rem)`
+- **Sfondo**: `#ffffff`
+- **Logo**: variante colore del marchio (nero + accento verde sul "6"), da `assets/images/` — vedi `assets/Next6 Brand Guidelines.dc.html` per varianti (colore, nero, bianco, ondark), icone e regole d'uso (spazio di rispetto, proporzioni, dimensioni minime)
+- **Font UI** (solo per l'anno): stack di sistema (`-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`)
+- **Dimensioni responsive**: il logo usa `clamp(20rem, 60vw, 56rem)`, l'anno usa `clamp(0.7rem, 1.4vw, 1rem)` — entrambi scalano con la larghezza della finestra
+- **Anno**: colore grigio chiaro (`#c4c4c4`) per restare visibile ma discreto
 
-## Vincoli di performance
+## Asset di brand
 
-Mantenere questi elementi quando si modificano gli elementi animati:
+Gli asset attuali (icone, logo in tutte le varianti, immagine social) sono in `assets/images/`. Le versioni precedenti (favicon e logo dark/light superati) sono archiviate in `assets/OLD/` e non vanno usate per nuove modifiche.
 
-- `will-change: transform, opacity` su tutti gli elementi animati (aurora blob, particelle, bagliore ambientale)
-- `contain: layout style paint` su `.aurora` e `.particles` per isolare i livelli di compositing
-- La griglia animata usa `will-change: transform` per rimanere sulla GPU
+## File legacy
+
+`index_old.html` contiene la versione precedente della pagina (tema scuro con aurora animata, griglia e particelle, descritta nel `README.md` ancora presente in repo). È tenuto solo come riferimento storico — non è servito in produzione e non va aggiornato insieme a `index.html`.
