@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: oklch(0.98 0.003 90); }
+    a { color: oklch(0.55 0.14 250); }
+    a:hover { color: oklch(0.45 0.14 250); }
+  </style>
+</helmet>
+<div style="font-family:'Manrope',sans-serif; color:oklch(0.22 0.01 90); max-width:960px; margin:0 auto; padding:80px 40px 120px; display:flex; flex-direction:column; gap:72px;">
+
+  <div style="display:flex; flex-direction:column; gap:8px;">
+    <div style="font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:oklch(0.65 0.16 155); font-weight:700;">Brand Guidelines</div>
+    <div style="font-size:48px; font-weight:800; letter-spacing:-0.02em;">Next6 — Identità visiva</div>
+    <div style="font-size:17px; color:oklch(0.45 0.01 90);">Documentazione tecnica del logo e delle sue applicazioni.</div>
+  </div>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <h2 style="font-size:22px; font-weight:800; margin:0;">Logo principale</h2>
+    <div style="display:flex; align-items:center; justify-content:center; padding:64px; background:#fff; border-radius:16px; border:1px solid oklch(0.9 0.005 90);">
+      <img src="assets/next6-logo-color-1200.png" alt="Next6 logo" style="width:420px; height:auto;">
+    </div>
+    <div style="font-size:14px; color:oklch(0.45 0.01 90); line-height:1.6;">
+      Wordmark "next6" con il numero 6 in evidenza — colore accento, peso maggiore, dimensione ridotta e posizione rialzata rispetto al testo. Font: geometric sans (Manrope come riferimento; Helvetica/Arial come fallback negli export raster).
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <h2 style="font-size:22px; font-weight:800; margin:0;">Varianti colore</h2>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; align-items:center; justify-content:center; padding:32px; background:#fff; border-radius:12px; border:1px solid oklch(0.9 0.005 90); height:100px;">
+          <img src="assets/next6-logo-black-1200.png" alt="Logo nero" style="width:100%; max-width:180px;">
+        </div>
+        <div style="font-size:13px; color:oklch(0.45 0.01 90); text-align:center;">Monocromatico — nero</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; align-items:center; justify-content:center; padding:32px; background:oklch(0.22 0.01 90); border-radius:12px; height:100px;">
+          <img src="assets/next6-logo-white-1200.png" alt="Logo bianco" style="width:100%; max-width:180px;">
+        </div>
+        <div style="font-size:13px; color:oklch(0.45 0.01 90); text-align:center;">Monocromatico — bianco (su fondo scuro)</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; align-items:center; justify-content:center; padding:32px; background:oklch(0.22 0.01 90); border-radius:12px; height:100px;">
+          <img src="assets/next6-logo-ondark-1200.png" alt="Logo su fondo scuro" style="width:100%; max-width:180px;">
+        </div>
+        <div style="font-size:13px; color:oklch(0.45 0.01 90); text-align:center;">Versione su fondo scuro</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <h2 style="font-size:22px; font-weight:800; margin:0;">Icona / App icon</h2>
+    <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+      <img src="assets/next6-icon-256.png" alt="Icona Next6" style="width:120px; height:120px; border-radius:24px;">
+      <div style="font-size:14px; color:oklch(0.45 0.01 90); line-height:1.6; max-width:520px;">
+        Marchio sintetico per favicon, icone app e profili social: cifra "6" in accento su fondo scuro arrotondato. Disponibile in: 1024, 512, 256, 180, 128, 64, 32px (assets/next6-icon-*.png) e formato vettoriale (assets/next6-icon.svg).
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <h2 style="font-size:22px; font-weight:800; margin:0;">Palette colori</h2>
+    <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px;">
+      <div style="display:flex; align-items:center; gap:16px; padding:16px; background:#fff; border-radius:12px; border:1px solid oklch(0.9 0.005 90);">
+        <div style="width:56px; height:56px; border-radius:10px; background:oklch(0.22 0.01 90); flex-shrink:0;"></div>
+        <div>
+          <div style="font-weight:700; font-size:15px;">Nero primario</div>
+          <div style="font-size:13px; color:oklch(0.45 0.01 90); font-family:monospace;">oklch(0.22 0.01 90)</div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; padding:16px; background:#fff; border-radius:12px; border:1px solid oklch(0.9 0.005 90);">
+        <div style="width:56px; height:56px; border-radius:10px; background:oklch(0.65 0.16 155); flex-shrink:0;"></div>
+        <div>
+          <div style="font-weight:700; font-size:15px;">Verde accento</div>
+          <div style="font-size:13px; color:oklch(0.45 0.01 90); font-family:monospace;">oklch(0.65 0.16 155)</div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; padding:16px; background:#fff; border-radius:12px; border:1px solid oklch(0.9 0.005 90);">
+        <div style="width:56px; height:56px; border-radius:10px; background:oklch(0.98 0.003 90); flex-shrink:0; border:1px solid oklch(0.9 0.005 90);"></div>
+        <div>
+          <div style="font-weight:700; font-size:15px;">Bianco / fondo</div>
+          <div style="font-size:13px; color:oklch(0.45 0.01 90); font-family:monospace;">oklch(0.98 0.003 90)</div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; padding:16px; background:#fff; border-radius:12px; border:1px solid oklch(0.9 0.005 90);">
+        <div style="width:56px; height:56px; border-radius:10px; background:oklch(0.45 0.01 90); flex-shrink:0;"></div>
+        <div>
+          <div style="font-weight:700; font-size:15px;">Grigio testo secondario</div>
+          <div style="font-size:13px; color:oklch(0.45 0.01 90); font-family:monospace;">oklch(0.45 0.01 90)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <h2 style="font-size:22px; font-weight:800; margin:0;">Tipografia</h2>
+    <div style="display:flex; flex-direction:column; gap:12px; padding:24px; background:#fff; border-radius:12px; border:1px solid oklch(0.9 0.005 90);">
+      <div style="font-size:14px; color:oklch(0.45 0.01 90);">Font primario: <strong style="color:oklch(0.22 0.01 90);">Manrope</strong> (Google Fonts) — pesi 500 / 700 / 800</div>
+      <div style="font-size:14px; color:oklch(0.45 0.01 90);">Fallback di sistema: Helvetica, Arial, sans-serif</div>
+      <div style="display:flex; gap:24px; margin-top:8px;">
+        <div style="font-weight:500; font-size:20px;">Regular 500</div>
+        <div style="font-weight:700; font-size:20px;">Bold 700</div>
+        <div style="font-weight:800; font-size:20px;">Extrabold 800</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <h2 style="font-size:22px; font-weight:800; margin:0;">Spazio di rispetto e dimensione minima</h2>
+    <div style="display:flex; align-items:center; justify-content:center; padding:48px; background:#fff; border-radius:16px; border:1px solid oklch(0.9 0.005 90);">
+      <div style="position:relative; padding:48px; border:2px dashed oklch(0.75 0.02 90);">
+        <img src="assets/next6-logo-color-600.png" alt="Spazio di rispetto" style="width:280px; height:auto; display:block;">
+      </div>
+    </div>
+    <div style="font-size:14px; color:oklch(0.45 0.01 90); line-height:1.6;">
+      Mantenere intorno al logo uno spazio libero pari almeno all'altezza della lettera "n" del wordmark. Dimensione minima consigliata: 100px di larghezza per il lockup orizzontale, 32px per l'icona.
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <h2 style="font-size:22px; font-weight:800; margin:0;">Uso corretto</h2>
+    <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px;">
+      <div style="display:flex; flex-direction:column; gap:12px; padding:24px; background:#fff; border-radius:12px; border:2px solid oklch(0.65 0.16 155);">
+        <div style="display:flex; align-items:center; justify-content:center; padding:24px;">
+          <img src="assets/next6-logo-color-600.png" alt="Corretto" style="width:180px;">
+        </div>
+        <div style="font-size:13px; font-weight:700; color:oklch(0.5 0.14 155);">✓ Proporzioni e colori originali, spazio di rispetto rispettato</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; padding:24px; background:#fff; border-radius:12px; border:2px solid oklch(0.62 0.17 25);">
+        <div style="display:flex; align-items:center; justify-content:center; padding:24px;">
+          <img src="assets/next6-logo-color-600.png" alt="Non corretto" style="width:180px; transform:scaleY(1.4);">
+        </div>
+        <div style="font-size:13px; font-weight:700; color:oklch(0.55 0.17 25);">✗ Non deformare, ruotare o alterare le proporzioni</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:24px;">
+    <h2 style="font-size:22px; font-weight:800; margin:0;">File disponibili</h2>
+    <div style="display:flex; flex-direction:column; gap:8px; padding:24px; background:#fff; border-radius:12px; border:1px solid oklch(0.9 0.005 90); font-family:monospace; font-size:13px; color:oklch(0.4 0.01 90);">
+      <div>assets/next6-logo-color.svg — lockup vettoriale, colore</div>
+      <div>assets/next6-logo-black.svg / -white.svg / -ondark.svg</div>
+      <div>assets/next6-logo-color-{2400,1200,600}.png — trasparente</div>
+      <div>assets/next6-logo-{black,white,ondark}-1200.png</div>
+      <div>assets/next6-icon.svg — icona vettoriale</div>
+      <div>assets/next6-icon-{1024,512,256,180,128,64,32}.png</div>
+      <div>assets/next6-social-1200.png — profilo social 1200×1200</div>
+    </div>
+  </section>
+
+</div>
+
+</x-dc>
+</body>
+</html>
